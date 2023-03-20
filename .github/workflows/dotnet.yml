@@ -21,8 +21,12 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore MentorAPI
-    - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build MentorAPI
+    - name: Restore dependenciesTest
+      run: dotnet build TestProject
+    - name: Restore dependenciesTest1
+      run: dotnet build TestProject1
     - name: Test
+      run: dotnet test TestProject --no-build --verbosity normal
+    - name: Test1
       run: dotnet test TestProject1 --no-build --verbosity normal
